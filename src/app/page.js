@@ -35,14 +35,17 @@ export default function Home() {
     setSummary("Generating summary...");
 
     try {
-      let data = await fetch("http://127.0.0.1:5000/api/process", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": process.env.BACKEND_API_KEY,
-        },
-        body: JSON.stringify({ url }),
-      });
+      let data = await fetch(
+        "https://subtract-backend-production.up.railway.app/api/process",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": process.env.BACKEND_API_KEY,
+          },
+          body: JSON.stringify({ url }),
+        }
+      );
       let response = await data.json();
       if (response) setSummary(response);
       else
