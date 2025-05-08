@@ -41,7 +41,7 @@ export default function Home() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "x-api-key": process.env.BACKEND_API_KEY,
+            "x-api-key": process.env.NEXT_PUBLIC_BACKEND_API_KEY,
           },
           body: JSON.stringify({ url }),
         }
