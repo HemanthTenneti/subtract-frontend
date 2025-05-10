@@ -16,8 +16,8 @@ export default function Home() {
     transcribe: false,
   });
 
-  const toggleOption = (option) => {
-    setSelectedOptions((prev) => ({
+  const toggleOption = option => {
+    setSelectedOptions(prev => ({
       ...prev,
       [option]: !prev[option],
     }));
@@ -80,8 +80,7 @@ export default function Home() {
       </div>
       <button
         className="bg-white hover:bg-neutral-200 transition duration-200 w-[440px] text-neutral-900 p-2 rounded-lg cursor-pointer"
-        onClick={onSubmit}
-      >
+        onClick={onSubmit}>
         {selectedOptions.summarize
           ? selectedOptions.transcribe
             ? "Generate Summary & Transcription"
@@ -105,8 +104,7 @@ export default function Home() {
           onClick={() => toggleOption("summarize")}
           className={`flex p-5 py-3 items-center gap-2 transition duration-200 rounded-l-lg border border-neutral-800 cursor-pointer ${
             selectedOptions.summarize ? "bg-white text-black" : "bg-neutral-900"
-          }`}
-        >
+          }`}>
           <SummarizeIcon isActive={selectedOptions.summarize} /> Summarize
         </button>
         <button
@@ -115,8 +113,7 @@ export default function Home() {
             selectedOptions.transcribe
               ? "bg-white text-black"
               : "bg-neutral-900"
-          }`}
-        >
+          }`}>
           <TranscribeIcon isActive={selectedOptions.transcribe} /> Transcribe
         </button>
       </div>
@@ -131,16 +128,14 @@ export default function Home() {
             <a
               href="https://gemini.google.com/app"
               target="_blank"
-              className="text-blue-200 hover:underline"
-            >
+              className="text-blue-200 hover:underline">
               Google Gemini
             </a>{" "}
             &{" "}
             <a
               href="https://www.assemblyai.com/"
               target="_blank"
-              className="text-blue-200 hover:underline"
-            >
+              className="text-blue-200 hover:underline">
               AssemblyAI
             </a>
           </p>
@@ -180,6 +175,17 @@ export default function Home() {
           </div>
         </div>
       )}
+      <h1 className="text-center text-xl m-5">
+        Due to a bug with yt-dlp failing to download YouTube videos
+        <br />
+        because of Google&apos;s TnC,
+        <br />
+        some YouTube videos might not generate any summary.
+        <br /> If you see this message, please consider above mentioned
+        <br />
+        and try summarizing Instagram, Reddit, Twitter, etc. <br />
+        This issue should be fixed in the near future.
+      </h1>
     </div>
   );
 }
